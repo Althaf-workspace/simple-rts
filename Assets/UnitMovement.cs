@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.InputSystem;
 
 public class UnitMovement : MonoBehaviour
 {
@@ -16,10 +16,10 @@ public class UnitMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
             if(Physics.Raycast(ray,out hit, Mathf.Infinity, ground))
             {
                 agent.SetDestination(hit.point);
