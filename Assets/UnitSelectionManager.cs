@@ -76,12 +76,12 @@ public class UnitSelectionManager : MonoBehaviour
     {
         if (unitSelected.Contains(unit) == false)
         {
-            EnableUnitMovement(unit,true);
+            SelectUnit(unit,true);
             unitSelected.Add(unit);
         }
         else
         {
-            EnableUnitMovement(unit,false);
+            SelectUnit(unit,false);
             unitSelected.Remove(unit);
         }
     }
@@ -90,7 +90,7 @@ public class UnitSelectionManager : MonoBehaviour
     {
         foreach (var unit in unitSelected)
         {
-            EnableUnitMovement(unit, false);
+            SelectUnit(unit, false);
         }
         unitSelected.Clear();
         groudMaker.SetActive(false);
@@ -102,10 +102,10 @@ public class UnitSelectionManager : MonoBehaviour
 
         unitSelected.Add(unit);
 
-        EnableUnitMovement(unit, true);
+        SelectUnit(unit, true);
     }
 
-    private void EnableUnitMovement(GameObject unit, bool shouldMove)
+    private void SelectUnit(GameObject unit, bool shouldMove)
     {
         unit.GetComponent<UnitMovement>().enabled = shouldMove;
         EnableUnitIndicator(unit,shouldMove);
@@ -114,5 +114,14 @@ public class UnitSelectionManager : MonoBehaviour
     private void EnableUnitIndicator(GameObject unit, bool visiblity)
     {
         unit.transform.GetChild(0).gameObject.SetActive(visiblity);
+    }
+
+    internal void DragSelect(GameObject unit)
+    {
+        if (unitSelected.Contains(unit) == false)
+        {
+            unitSelected.Add(unit);
+            SelectUnit(unit,true);
+        }
     }
 }
