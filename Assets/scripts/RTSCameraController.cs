@@ -94,8 +94,6 @@ public class RTSCameraController : MonoBehaviour
             HandleMouseDragInput();
         }
 
-        // Keyboard Control
-        Vector2 move = moveAction.ReadValue<Vector2>();
         if (moveWithKeyboad)
         {
             if (Keyboard.current.leftMetaKey.isPressed)
@@ -107,19 +105,19 @@ public class RTSCameraController : MonoBehaviour
                 movementSpeed = normalSpeed;
             }
 
-            if (move.y == 1)
+            if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed)
             {
                 newPosition += (transform.forward * movementSpeed);
             }
-            if (move.y == -1)
+            if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)
             {
                 newPosition += (transform.forward * -movementSpeed);
             }
-            if (move.x == 1)
+            if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
             {
                 newPosition += (transform.right * movementSpeed);
             }
-            if (move.x == -1)
+            if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
             {
                 newPosition += (transform.right * -movementSpeed);
             }
