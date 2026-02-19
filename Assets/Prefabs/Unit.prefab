@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 4855000322967220334}
   - component: {fileID: 6854736559417219557}
   - component: {fileID: 8820116713455774953}
+  - component: {fileID: 3439805689002765368}
   m_Layer: 3
   m_Name: Unit
   m_TagString: Untagged
@@ -279,3 +280,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d0abad1e8e3ba48964234aa0466d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &3439805689002765368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7263480218796195278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15088f02a22e884b9b3e2d2d7c017c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackController
+  targetToAttack: {fileID: 0}
