@@ -156,6 +156,10 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
+  attackable:
+    serializedVersion: 2
+    m_Bits: 128
+  attackCursorVisible: 0
   groudMaker: {fileID: 862113374}
 --- !u!4 &75679149
 Transform:
@@ -1284,7 +1288,7 @@ GameObject:
   - component: {fileID: 1943078683}
   - component: {fileID: 1943078682}
   - component: {fileID: 1943078681}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ENEMY
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1418,7 +1422,7 @@ Transform:
   m_GameObject: {fileID: 1943078680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.76, y: 1, z: 40.25}
+  m_LocalPosition: {x: 24.76, y: 1, z: 34.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1472,7 +1476,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 330585546}
   followTransform: {fileID: 0}
   moveWithKeyboad: 1
-  moveWithEdgeScrolling: 1
+  moveWithEdgeScrolling: 0
   moveWithMouseDrag: 0
   fastSpeed: 0.1
   normalSpeed: 0.05
@@ -1509,7 +1513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8579496647109657928, guid: c1031301f2e112445b86bdbed2968098, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.54128
+      value: 26.95
       objectReference: {fileID: 0}
     - target: {fileID: 8579496647109657928, guid: c1031301f2e112445b86bdbed2968098, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1517,7 +1521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8579496647109657928, guid: c1031301f2e112445b86bdbed2968098, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42.95
+      value: 16.76
       objectReference: {fileID: 0}
     - target: {fileID: 8579496647109657928, guid: c1031301f2e112445b86bdbed2968098, type: 3}
       propertyPath: m_LocalRotation.w

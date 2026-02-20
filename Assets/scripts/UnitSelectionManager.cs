@@ -13,6 +13,8 @@ public class UnitSelectionManager : MonoBehaviour
 
     public LayerMask clickable;
     public LayerMask ground;
+    public LayerMask attackable;
+    public bool attackCursorVisible;
     public GameObject groudMaker;
 
     void Awake()
@@ -69,7 +71,48 @@ public class UnitSelectionManager : MonoBehaviour
                 groudMaker.SetActive(true);
             }
         }
+        if (unitSelected.Count > 0 && AtLeastOneOffensiveUnit(unitSelected))
+        {
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+            // if hitting clickable
+            if (Physics.Raycast(ray,out hit, Mathf.Infinity,attackable))
+            {
+                attackCursorVisible = true;
+
+                if (Mouse.current.rightButton.wasPressedThisFrame)
+                {
+                    Transform target = hit.transform;
+                    foreach (GameObject unit in unitSelected)
+                    {
+                        if (unit.GetComponent<AttackController>())
+                        {
+                         unit.GetComponent<AttackController>().targetToAttack = target;   
+                        }
+                    }
+                }
+                
+            }
+            else
+            {
+                attackCursorVisible = false;
+            }
+            
+        }
         
+    }
+
+    private bool AtLeastOneOffensiveUnit(List<GameObject> unitSelected)
+    {
+        foreach (GameObject unit in unitSelected)
+        {
+            if (unit.GetComponent<AttackController>())
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void MultiSelectUnit(GameObject unit)
